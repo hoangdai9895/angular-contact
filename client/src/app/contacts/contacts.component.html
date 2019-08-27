@@ -1,0 +1,42 @@
+<div class="container">
+    <h2 class="page-header">Add contact</h2>
+    <form>
+        <div class="form-group">
+            <label for="">First name</label>
+            <input type="text" [(ngModel)]="first_name" name="first_name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="">Last name</label>
+            <input type="text" [(ngModel)]="last_name" name="last_name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="">Phone</label>
+            <input type="text" [(ngModel)]="phone" name="phone" class="form-control" required />
+        </div>
+
+        <input type="button" value="add" class="btn btn-success" (click)="addContact()" />
+    </form>
+</div>
+<div class="container">
+    <div *ngFor="let contact of contacts" class="my-2">
+        <div class="row row1">
+            <div class="col-md-3">
+                {{ contact.first_name }}
+            </div>
+            <div class="col-md-3">
+                {{ contact.last_name }}
+            </div>
+            <div class="col-md-3">
+                {{ contact.phone }}
+            </div>
+            <div class="col-md-3">
+                <input type="button" (click)="deleteContact(contact._id)" value="delete" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div [class]="state ? 'btn btn-success' : 'btn btn-primary'">Test class1</div>
+<button (click)="changeState()" class="btn btn-warning">Click1</button>
